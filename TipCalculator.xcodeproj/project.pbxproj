@@ -14,6 +14,8 @@
 		D0EE3DD2197EA23800CE52EA /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DD1197EA23800CE52EA /* TipCalculatorTests.swift */; };
 		D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DDB197EA28800CE52EA /* TipCalculatorModel.swift */; };
 		D0EE3DDE197EA2B700CE52EA /* TipCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DDD197EA2B700CE52EA /* TipCalculator.swift */; };
+		D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DDF1980509700CE52EA /* VehicleListController.swift */; };
+		D0EE3DE21980603600CE52EA /* CreateVehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		D0EE3DD1197EA23800CE52EA /* TipCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorTests.swift; sourceTree = "<group>"; };
 		D0EE3DDB197EA28800CE52EA /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		D0EE3DDD197EA2B700CE52EA /* TipCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculator.swift; sourceTree = "<group>"; };
+		D0EE3DDF1980509700CE52EA /* VehicleListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleListController.swift; sourceTree = "<group>"; };
+		D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVehicleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				D0EE3DC2197EA23800CE52EA /* Main.storyboard */,
 				D0EE3DC5197EA23800CE52EA /* Images.xcassets */,
 				D0EE3DBC197EA23800CE52EA /* Supporting Files */,
+				D0EE3DDF1980509700CE52EA /* VehicleListController.swift */,
+				D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";
@@ -215,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */,
+				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,
+				D0EE3DE21980603600CE52EA /* CreateVehicleController.swift in Sources */,
 				D0EE3DDE197EA2B700CE52EA /* TipCalculator.swift in Sources */,
 				D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */,
 				D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */,
