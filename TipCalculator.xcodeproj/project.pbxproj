@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01290521980E83700A620FE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01290511980E83700A620FE /* CoreData.framework */; };
+		D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */; };
 		D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */; };
 		D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DC0197EA23800CE52EA /* ViewController.swift */; };
 		D0EE3DC4197EA23800CE52EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0EE3DC2197EA23800CE52EA /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01290511980E83700A620FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D01290551980E88E00A620FE /* OnDuty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnDuty.xcdatamodel; sourceTree = "<group>"; };
 		D0EE3DB9197EA23800CE52EA /* TipCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EE3DBD197EA23800CE52EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01290521980E83700A620FE /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 		D0EE3DB0197EA23800CE52EA = {
 			isa = PBXGroup;
 			children = (
+				D01290511980E83700A620FE /* CoreData.framework */,
 				D0EE3DDB197EA28800CE52EA /* TipCalculatorModel.swift */,
 				D0EE3DDD197EA2B700CE52EA /* TipCalculator.swift */,
 				D0EE3DBB197EA23800CE52EA /* TipCalculator */,
@@ -85,6 +91,7 @@
 		D0EE3DBB197EA23800CE52EA /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */,
 				D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */,
 				D0EE3DC0197EA23800CE52EA /* ViewController.swift */,
 				D0EE3DC2197EA23800CE52EA /* Main.storyboard */,
@@ -221,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */,
+				D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */,
 				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,
 				D0EE3DE21980603600CE52EA /* CreateVehicleController.swift in Sources */,
 				D0EE3DDE197EA2B700CE52EA /* TipCalculator.swift in Sources */,
@@ -413,6 +421,7 @@
 				D0EE3DD7197EA23800CE52EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0EE3DD8197EA23800CE52EA /* Build configuration list for PBXNativeTarget "TipCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -421,8 +430,23 @@
 				D0EE3DDA197EA23800CE52EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D01290551980E88E00A620FE /* OnDuty.xcdatamodel */,
+			);
+			currentVersion = D01290551980E88E00A620FE /* OnDuty.xcdatamodel */;
+			name = OnDuty.xcdatamodeld;
+			path = ../OnDuty.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D0EE3DB1197EA23800CE52EA /* Project object */;
 }
