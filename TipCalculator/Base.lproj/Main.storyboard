@@ -165,6 +165,9 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="GTO-zl-d6A"/>
+                    <connections>
+                        <outlet property="vehiclesList" destination="Zcr-Dj-5ut" id="jhK-lh-8ro"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHK-xY-7ST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
