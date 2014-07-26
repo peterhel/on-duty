@@ -13,12 +13,10 @@ class VehicleListController: UIViewController
  {
     
     @IBOutlet var vehiclesList: VehicleTableView
-    var vehicles: NSArray = [];
 
     override func viewDidAppear(animated: Bool) {
         self.vehiclesList.load()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

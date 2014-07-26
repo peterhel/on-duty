@@ -49,4 +49,20 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
+    
+    // Override to support conditional editing of the table view.
+    // This only needs to be implemented if you are going to be returning NO
+    // for some items. By default, all items are editable.
+    func tableView(tableView:UITableView, canEditRowAtIndexPath indexPath:NSIndexPath) -> Bool {
+    // Return YES if you want the specified item to be editable.
+    return true;
+    }
+    
+
+    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
 }

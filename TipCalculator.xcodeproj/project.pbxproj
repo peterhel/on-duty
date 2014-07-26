@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		D01290511980E83700A620FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D01290551980E88E00A620FE /* OnDuty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnDuty.xcdatamodel; sourceTree = "<group>"; };
-		D0C993561984059E00968EF2 /* VehicleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTableView.swift; sourceTree = "<group>"; };
+		D0C993561984059E00968EF2 /* VehicleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleTableView.swift; path = TipCalculator/VehicleTableView.swift; sourceTree = "<group>"; };
 		D0EE3DB9197EA23800CE52EA /* TipCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EE3DBD197EA23800CE52EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,13 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0C993581984088F00968EF2 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D0C993561984059E00968EF2 /* VehicleTableView.swift */,
+			);
+			name = ViewComponents;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D0EE3DB0197EA23800CE52EA = {
 			isa = PBXGroup;
 			children = (
+				D0EE3DBB197EA23800CE52EA /* TipCalculator */,
 				D01290511980E83700A620FE /* CoreData.framework */,
 				D0EE3DDB197EA28800CE52EA /* TipCalculatorModel.swift */,
 				D0EE3DDD197EA2B700CE52EA /* TipCalculator.swift */,
-				D0EE3DBB197EA23800CE52EA /* TipCalculator */,
 				D0EE3DCE197EA23800CE52EA /* TipCalculatorTests */,
 				D0EE3DBA197EA23800CE52EA /* Products */,
 			);
@@ -93,6 +102,7 @@
 		D0EE3DBB197EA23800CE52EA /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				D0C993581984088F00968EF2 /* ViewComponents */,
 				D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */,
 				D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */,
 				D0EE3DC0197EA23800CE52EA /* ViewController.swift */,
@@ -101,7 +111,6 @@
 				D0EE3DBC197EA23800CE52EA /* Supporting Files */,
 				D0EE3DDF1980509700CE52EA /* VehicleListController.swift */,
 				D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */,
-				D0C993561984059E00968EF2 /* VehicleTableView.swift */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";
