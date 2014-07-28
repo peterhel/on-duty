@@ -10,15 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var totalTextField : UITextField
-    @IBOutlet var taxPctSlider :UISlider
-    @IBOutlet var taxPctLabel: UILabel
-    @IBOutlet var resultsTextView: UITextView
+    @IBOutlet var totalTextField : UITextField!
+    @IBOutlet var taxPctSlider :UISlider!
+    @IBOutlet var taxPctLabel: UILabel!
+    @IBOutlet var resultsTextView: UITextView!
     
     let tipCalc = TipCalculatorModel(total: 33.25, taxPct: 0.06)
     
     func refreshUI(){
-        totalTextField.text = String(tipCalc.total)
+//        totalTextField.text = Double. tipCalc.total + ""
         taxPctSlider.value = Float(tipCalc.taxPct) * 100.0
         taxPctLabel.text = "Tax Percentage (\(Int(taxPctSlider.value))%)"
         resultsTextView.text = ""

@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
-    var vehicles: NSArray = [];
+    var vehicles: NSMutableArray = [];
 
     func load(){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -19,7 +19,7 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         
         var request = NSFetchRequest(entityName: "Vehicle")
         request.returnsObjectsAsFaults = false
-        vehicles = context.executeFetchRequest(request, error: nil)
+        vehicles = NSMutableArray(array: context.executeFetchRequest(request, error: nil))
         
         self.delegate=self;
         self.dataSource=self;
@@ -46,7 +46,7 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         var  cell = UITableViewCell()// tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         var vehicleData = vehicles[indexPath.row] as NSManagedObject
         cell.textLabel.text=vehicleData.valueForKey("regno") as String
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     
@@ -64,5 +64,27 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
         }
+    }
+    
+    func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) ->[AnyObject]!
+    {
+    
+/*    var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "More", handler:{action, indexpath in
+        println("MORE•ACTION");
+    });*/
+   // moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+    
+    var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
+            var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+            var context:NSManagedObjectContext = appDel.managedObjectContext
+        
+            context.deleteObject(self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject)
+            context.save(nil)
+        
+            self.vehicles.removeObjectAtIndex(indexpath.row)
+            tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    });
+    
+        return [deleteRowAction];
     }
 }

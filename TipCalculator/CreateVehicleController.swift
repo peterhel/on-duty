@@ -11,9 +11,11 @@ import CoreData
 
 class CreateVehicleController : UIViewController{
     
-    @IBOutlet var registrationNumber : UITextField
-    @IBOutlet var drivmedel : UISegmentedControl
-    @IBOutlet var owner : UISegmentedControl
+    var listener : ((NSManagedObject)->Void)!
+    
+    @IBOutlet var registrationNumber : UITextField!
+    @IBOutlet var drivmedel : UISegmentedControl!
+    @IBOutlet var owner : UISegmentedControl!
     
     @IBAction func saveVehicle(sender:AnyObject){
         println("Saving vehicle")
@@ -33,8 +35,13 @@ class CreateVehicleController : UIViewController{
         
         context.save(nil)
         
-        println(vehicle)
-        println("Vehicle saved")
+        if let callback = self.listener{
+            callback(vehicle)
+        }
+    }
+    
+    func setCreatedListener(closure: (vehicle:NSManagedObject!) -> Void) {
+        listener=(closure)
     }
     
     override func viewDidLoad() {
