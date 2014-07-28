@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.12" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Trip" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Trips" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="end" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="regno" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" syncable="YES"/>
     </entity>
     <entity name="Vehicle" syncable="YES">
         <attribute name="fuel" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -13,7 +13,7 @@
         <attribute name="regno" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Trips" positionX="-54" positionY="18" width="128" height="120"/>
         <element name="Vehicle" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Trip" positionX="-54" positionY="18" width="128" height="118"/>
     </elements>
 </model>

@@ -4,6 +4,91 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
+        <!--Add Trip Controller-->
+        <scene sceneID="wsk-K8-xi9">
+            <objects>
+                <viewController storyboardIdentifier="AddTripController" id="J16-XL-17N" customClass="AddTripController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RXB-S6-YUW"/>
+                        <viewControllerLayoutGuide type="bottom" id="k29-bu-WAW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LNj-eR-MH3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAQ-3s-fnM">
+                                <rect key="frame" x="20" y="28" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kM-ww-Klu">
+                                <rect key="frame" x="20" y="562" width="560" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveTrip" destination="J16-XL-17N" eventType="touchUpInside" id="mld-Ci-Dua"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9s-y1-3Tu">
+                                <rect key="frame" x="20" y="57" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i7q-81-dZR">
+                                <rect key="frame" x="20" y="95" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcA-Oi-ptG">
+                                <rect key="frame" x="20" y="133" width="560" height="251"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FHd-Zw-lt9">
+                                <rect key="frame" x="20" y="392" width="560" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="428256607.48152798">
+                                    <!--2014-07-28 16:10:07 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IAQ-3s-fnM" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="5qu-wd-jko"/>
+                            <constraint firstAttribute="trailing" secondItem="IAQ-3s-fnM" secondAttribute="trailing" constant="20" symbolic="YES" id="84p-ie-M2s"/>
+                            <constraint firstAttribute="trailing" secondItem="i7q-81-dZR" secondAttribute="trailing" constant="20" symbolic="YES" id="9dk-Vc-nlC"/>
+                            <constraint firstItem="i7q-81-dZR" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="A8Q-uf-X4k"/>
+                            <constraint firstAttribute="trailing" secondItem="zcA-Oi-ptG" secondAttribute="trailing" constant="20" symbolic="YES" id="CuO-xn-3e1"/>
+                            <constraint firstItem="zcA-Oi-ptG" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="DS1-4a-UG3"/>
+                            <constraint firstItem="FHd-Zw-lt9" firstAttribute="top" secondItem="zcA-Oi-ptG" secondAttribute="bottom" constant="8" symbolic="YES" id="E03-oV-AxG"/>
+                            <constraint firstItem="T9s-y1-3Tu" firstAttribute="top" secondItem="IAQ-3s-fnM" secondAttribute="bottom" constant="8" symbolic="YES" id="HTP-Rz-Nlu"/>
+                            <constraint firstItem="FHd-Zw-lt9" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="Thf-dw-Mwb"/>
+                            <constraint firstItem="T9s-y1-3Tu" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="US8-CH-pbf"/>
+                            <constraint firstItem="zcA-Oi-ptG" firstAttribute="top" secondItem="i7q-81-dZR" secondAttribute="bottom" constant="8" symbolic="YES" id="cUS-qa-ypr"/>
+                            <constraint firstAttribute="trailing" secondItem="3kM-ww-Klu" secondAttribute="trailing" constant="20" symbolic="YES" id="d7W-iz-x7u"/>
+                            <constraint firstAttribute="trailing" secondItem="T9s-y1-3Tu" secondAttribute="trailing" constant="20" symbolic="YES" id="dj0-19-gur"/>
+                            <constraint firstItem="k29-bu-WAW" firstAttribute="top" secondItem="3kM-ww-Klu" secondAttribute="bottom" constant="20" symbolic="YES" id="dvP-M9-Ywd"/>
+                            <constraint firstAttribute="trailing" secondItem="FHd-Zw-lt9" secondAttribute="trailing" constant="20" symbolic="YES" id="jIu-d9-bPr"/>
+                            <constraint firstItem="3kM-ww-Klu" firstAttribute="top" secondItem="FHd-Zw-lt9" secondAttribute="bottom" constant="8" symbolic="YES" id="mKd-Nf-O7l"/>
+                            <constraint firstItem="i7q-81-dZR" firstAttribute="top" secondItem="T9s-y1-3Tu" secondAttribute="bottom" constant="8" symbolic="YES" id="mhp-YE-gsB"/>
+                            <constraint firstItem="3kM-ww-Klu" firstAttribute="leading" secondItem="LNj-eR-MH3" secondAttribute="leading" constant="20" symbolic="YES" id="tbD-IG-TGR"/>
+                            <constraint firstItem="IAQ-3s-fnM" firstAttribute="top" secondItem="RXB-S6-YUW" secondAttribute="bottom" constant="20" symbolic="YES" id="xAl-So-WBA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="comment" destination="zcA-Oi-ptG" id="HnS-d6-y0H"/>
+                        <outlet property="date" destination="FHd-Zw-lt9" id="jHg-Kq-7xH"/>
+                        <outlet property="end" destination="i7q-81-dZR" id="W1Q-mj-aMg"/>
+                        <outlet property="regno" destination="IAQ-3s-fnM" id="plb-10-aYm"/>
+                        <outlet property="start" destination="T9s-y1-3Tu" id="dLy-l2-TWM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ii2-Bp-v7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453" y="-678"/>
+        </scene>
         <!--Vehicle Trip View Controller-->
         <scene sceneID="YP1-IP-xmZ">
             <objects>
@@ -15,8 +100,17 @@
                     <view key="view" contentMode="scaleToFill" id="ZzO-FA-KQ0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3E0-CW-Aeb" customClass="TripsTableView" customModule="TipCalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tripsTableView" destination="3E0-CW-Aeb" id="vb7-CN-Jgn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzv-88-Klt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

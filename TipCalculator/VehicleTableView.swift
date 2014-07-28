@@ -23,7 +23,6 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         
         self.delegate=self;
         self.dataSource=self;
-
     }
     
     func vehicleCreated(vehicle:NSManagedObject!) -> Void{

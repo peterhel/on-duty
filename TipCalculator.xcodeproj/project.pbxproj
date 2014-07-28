@@ -11,6 +11,8 @@
 		D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */; };
 		D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */; };
 		D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */; };
+		D0AB8DCD1986A2EF00864CAC /* TripsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */; };
+		D0B282711986AAFC0008F706 /* AddTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B282701986AAFC0008F706 /* AddTripController.swift */; };
 		D0C993571984059E00968EF2 /* VehicleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C993561984059E00968EF2 /* VehicleTableView.swift */; };
 		D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */; };
 		D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DC0197EA23800CE52EA /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		D01290551980E88E00A620FE /* OnDuty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnDuty.xcdatamodel; sourceTree = "<group>"; };
 		D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleMainTableView.swift; path = TipCalculator/VehicleMainTableView.swift; sourceTree = "<group>"; };
 		D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTripViewController.swift; sourceTree = "<group>"; };
+		D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableView.swift; sourceTree = "<group>"; };
+		D0B282701986AAFC0008F706 /* AddTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripController.swift; sourceTree = "<group>"; };
 		D0C993561984059E00968EF2 /* VehicleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleTableView.swift; path = TipCalculator/VehicleTableView.swift; sourceTree = "<group>"; };
 		D0EE3DB9197EA23800CE52EA /* TipCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EE3DBD197EA23800CE52EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			children = (
 				D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */,
 				D0C993561984059E00968EF2 /* VehicleTableView.swift */,
+				D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */,
 			);
 			name = ViewComponents;
 			path = ..;
@@ -117,6 +122,7 @@
 				D0EE3DDF1980509700CE52EA /* VehicleListController.swift */,
 				D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */,
 				D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */,
+				D0B282701986AAFC0008F706 /* AddTripController.swift */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			files = (
 				D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */,
 				D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */,
+				D0B282711986AAFC0008F706 /* AddTripController.swift in Sources */,
 				D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */,
 				D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */,
 				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,
@@ -254,6 +261,7 @@
 				D0C993571984059E00968EF2 /* VehicleTableView.swift in Sources */,
 				D0EE3DDE197EA2B700CE52EA /* TipCalculator.swift in Sources */,
 				D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */,
+				D0AB8DCD1986A2EF00864CAC /* TripsTableView.swift in Sources */,
 				D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
