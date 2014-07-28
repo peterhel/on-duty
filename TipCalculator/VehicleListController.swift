@@ -16,7 +16,6 @@ class VehicleListController: UIViewController
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidLoad()
-
     }
     
     override func viewDidLoad() {
@@ -29,17 +28,12 @@ class VehicleListController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    func vehicleCreated(vehicle:NSManagedObject!) -> Void{
-        println("Listener callback executed!")
-        self.vehiclesList.vehicles.insertObject(vehicle, atIndex: 0)
-        self.vehiclesList.reloadData()
-    }
 
     
     @IBAction func createVehicle(sender: AnyObject){
         let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("CreateVehicleController") as CreateVehicleController
         
-        secondViewController.setCreatedListener(self.vehicleCreated)
+        secondViewController.setCreatedListener(self.vehiclesList.vehicleCreated)
 
         self.navigationController.pushViewController(secondViewController, animated: true)
     }

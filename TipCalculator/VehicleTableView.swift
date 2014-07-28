@@ -26,6 +26,12 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
 
     }
     
+    func vehicleCreated(vehicle:NSManagedObject!) -> Void{
+        println("Listener callback executed!")
+        self.vehicles.insertObject(vehicle, atIndex: 0)
+        self.reloadData()
+    }
+
     func tableView(tableView:UITableView!, numberOfRowsInSection section:Int)->Int
     {
         return vehicles.count

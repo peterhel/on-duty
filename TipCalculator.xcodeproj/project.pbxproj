@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D01290521980E83700A620FE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01290511980E83700A620FE /* CoreData.framework */; };
 		D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */; };
+		D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */; };
+		D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */; };
 		D0C993571984059E00968EF2 /* VehicleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C993561984059E00968EF2 /* VehicleTableView.swift */; };
 		D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DBE197EA23800CE52EA /* AppDelegate.swift */; };
 		D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE3DC0197EA23800CE52EA /* ViewController.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		D01290511980E83700A620FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D01290551980E88E00A620FE /* OnDuty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnDuty.xcdatamodel; sourceTree = "<group>"; };
+		D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleMainTableView.swift; path = TipCalculator/VehicleMainTableView.swift; sourceTree = "<group>"; };
+		D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTripViewController.swift; sourceTree = "<group>"; };
 		D0C993561984059E00968EF2 /* VehicleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleTableView.swift; path = TipCalculator/VehicleTableView.swift; sourceTree = "<group>"; };
 		D0EE3DB9197EA23800CE52EA /* TipCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EE3DBD197EA23800CE52EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 		D0C993581984088F00968EF2 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */,
 				D0C993561984059E00968EF2 /* VehicleTableView.swift */,
 			);
 			name = ViewComponents;
@@ -111,6 +116,7 @@
 				D0EE3DBC197EA23800CE52EA /* Supporting Files */,
 				D0EE3DDF1980509700CE52EA /* VehicleListController.swift */,
 				D0EE3DE11980603600CE52EA /* CreateVehicleController.swift */,
+				D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";
@@ -239,8 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */,
 				D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */,
 				D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */,
+				D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */,
 				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,
 				D0EE3DE21980603600CE52EA /* CreateVehicleController.swift in Sources */,
 				D0C993571984059E00968EF2 /* VehicleTableView.swift in Sources */,
