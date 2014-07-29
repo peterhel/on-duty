@@ -17,12 +17,19 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         self.delegate = self
         self.dataSource = self
 
-        var headerView = UIView()
-        var label = UILabel()
-        label.text = "Trips"
-        self.tableHeaderView = headerView
+        self.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.trips = trips
+    }
+    
+    func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
+    {
+        return 51
+    }
+    
+    func numberOfSectionsInTableView(tableView:UITableView!)->Int
+    {
+        return 1
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
@@ -47,24 +54,19 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
             formatter.dateStyle = .MediumStyle
             formatter.timeStyle = .NoStyle
             var dateStr = formatter.stringFromDate(date)
-            var cell = UITableViewCell()
+            var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
             cell.textLabel.text = dateStr
             return cell
         }
-        var cell = UITableViewCell()
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         cell.textLabel.text = "entripp"
         return cell
     }
 
-    // Override to support conditional editing of the table view.
-    // This only needs to be implemented if you are going to be returning NO
-    // for some items. By default, all items are editable.
-    func tableView(tableView:UITableView, canEditRowAtIndexPath indexPath:NSIndexPath) -> Bool {
-        // Return YES if you want the specified item to be editable.
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    {
         return true;
     }
-    
-    
     
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
@@ -74,24 +76,32 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) ->[AnyObject]!
     {
-        
-        /*    var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "More", handler:{action, indexpath in
-        println("MORE•ACTION");
-        });*/
-        // moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
-        
-        var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
-/*            var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+/*        var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Delete", handler:{action, indexpath in
+            var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
             var context:NSManagedObjectContext = appDel.managedObjectContext
             
-            context.deleteObject(self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject)
-            context.save(nil)
-            
-            self.vehicles.removeObjectAtIndex(indexpath.row)
-            tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Automatic)*/
+            if let safetrips = self.trips
+            {
+                context.deleteObject(safetrips.objectAtIndex(indexPath.row) as NSManagedObject)
+                context.save(nil)
+                
+                safetrips.removeObjectAtIndex(indexpath.row)
+            }
+            tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Automatic)
             });
         
-        return [deleteRowAction];
+        return [deleteRowAction];*/
+        var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "More", handler:{action, indexpath in
+            println("MORE•ACTION");
+            });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
+            println("DELETE•ACTION");
+            });
+        
+        return [deleteRowAction, moreRowAction];
+
     }
 
 }

@@ -40,6 +40,16 @@ class AddTripController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var tapBackground = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapBackground)
         regno.text = vehicle.valueForKey("regno") as String
+    }
+    
+    func dismissKeyboard() {
+        println("dismiss keyboard")
+        //start.resignFirstResponder()
+        //end.resignFirstResponder()
+        //comment.resignFirstResponder()
+        self.view.endEditing(true)
     }
 }

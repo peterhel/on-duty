@@ -44,6 +44,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcA-Oi-ptG">
                                 <rect key="frame" x="20" y="133" width="560" height="251"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -86,6 +87,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ii2-Bp-v7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6uU-1n-BcT">
+                    <connections>
+                        <action selector="textViewHideKeyboard:" destination="J16-XL-17N" id="DIV-TZ-omP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="453" y="-678"/>
         </scene>
