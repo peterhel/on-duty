@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
 {
@@ -38,6 +39,18 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
+        if let safetrips = self.trips
+        {
+            var currentTrip: NSManagedObject = safetrips.objectAtIndex(indexPath.row) as NSManagedObject
+            var date = currentTrip.valueForKey("date") as NSDate
+            var formatter = NSDateFormatter()
+            formatter.dateStyle = .MediumStyle
+            formatter.timeStyle = .NoStyle
+            var dateStr = formatter.stringFromDate(date)
+            var cell = UITableViewCell()
+            cell.textLabel.text = dateStr
+            return cell
+        }
         var cell = UITableViewCell()
         cell.textLabel.text = "entripp"
         return cell
