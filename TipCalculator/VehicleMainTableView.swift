@@ -27,14 +27,24 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
         
         self.delegate=self;
         self.dataSource=self;
+        
+        AppContext.eventListener.addEntityCreatedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                self.vehicles.insertObject(vehicle, atIndex: 0)
+                self.reloadData()
+            }
+        ))
+        
+        AppContext.eventListener.addEntityDeletedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                self.vehicles.removeObject(vehicle)
+                self.reloadData()
+            }
+        ))
     }
     
-    func vehicleCreated(vehicle:NSManagedObject!) -> Void{
-        println("Listener callback executed!")
-        self.vehicles.insertObject(vehicle, atIndex: 0)
-        self.reloadData()
-    }
-
     func tableView(tableView:UITableView!, numberOfRowsInSection section:Int)->Int
     {
         return vehicles.count

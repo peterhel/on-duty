@@ -83,8 +83,11 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
             var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
             var context:NSManagedObjectContext = appDel.managedObjectContext
         
-            context.deleteObject(self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject)
+            var vehicleToDelete = self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject
+            context.deleteObject(vehicleToDelete)
             context.save(nil)
+        
+            AppContext.eventListener.fireEntityDeleted(vehicleToDelete)
         
             self.vehicles.removeObjectAtIndex(indexpath.row)
             tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Automatic)

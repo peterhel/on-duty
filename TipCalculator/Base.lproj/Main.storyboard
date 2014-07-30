@@ -200,15 +200,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-Dj-5ut" customClass="VehicleTableView" customModule="TipCalculator" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-Dj-5ut" customClass="VehicleTableView" customModule="TipCalculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="63" width="600" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zcr-Dj-5ut" firstAttribute="top" secondItem="7kk-ej-o3u" secondAttribute="top" constant="20" symbolic="YES" id="2fN-6k-lxk"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zcr-Dj-5ut" secondAttribute="bottom" constant="20" symbolic="YES" id="F72-RY-Cf0"/>
                             <constraint firstItem="Zcr-Dj-5ut" firstAttribute="leading" secondItem="7kk-ej-o3u" secondAttribute="leading" constant="20" symbolic="YES" id="coo-C2-mQE"/>
                             <constraint firstAttribute="trailing" secondItem="Zcr-Dj-5ut" secondAttribute="trailing" constant="20" symbolic="YES" id="exE-GQ-Wp8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zcr-Dj-5ut" secondAttribute="trailing" constant="20" symbolic="YES" id="iZX-vx-0mn"/>
+                            <constraint firstItem="Zcr-Dj-5ut" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7kk-ej-o3u" secondAttribute="leading" constant="20" symbolic="YES" id="r6Z-Cm-oec"/>
                             <constraint firstAttribute="bottom" secondItem="Zcr-Dj-5ut" secondAttribute="bottom" constant="20" symbolic="YES" id="x36-Gm-8cp"/>
                         </constraints>
                     </view>

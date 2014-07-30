@@ -31,9 +31,26 @@ class EventListener {
         println("Listener added for Created '\(event)'. Total \(listeners.count) listeners")
     }
     
+    func addEntityDeletedListener(event: String, listener: Listener) -> Void {
+        var listeners = getDeletedListenersFor(event)
+        listeners.append(listener)
+        entityDeletedListeners[event] = listeners
+        println("Listener added for Deleted '\(event)'. Total \(listeners.count) listeners")
+    }
+    
     func fireEntityCreated(entity: NSManagedObject) -> Void {
         var listeners = getCreatedListenersFor(entity.entity.name)
-        println("Incoming event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
+        println("Incoming created event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
+        for l in listeners
+        {
+            println("Executing listener callback")
+            l.callback(entity)
+        }
+    }
+    
+    func fireEntityDeleted(entity: NSManagedObject) -> Void {
+        var listeners = getDeletedListenersFor(entity.entity.name)
+        println("Incoming deleted event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
         for l in listeners
         {
             println("Executing listener callback")
@@ -49,6 +66,18 @@ class EventListener {
         else{
             var listeners = [Listener]()
             self.entityCreatedListeners[key] = listeners
+            return listeners
+        }
+    }
+
+    func getDeletedListenersFor(key: String) -> [Listener]
+    {
+        if var listeners = entityDeletedListeners[key]{
+            return listeners
+        }
+        else{
+            var listeners = [Listener]()
+            self.entityDeletedListeners[key] = listeners
             return listeners
         }
     }
