@@ -11,6 +11,11 @@ import CoreData
 
 class AddTripController: UIViewController {
     
+    var vehicle: NSManagedObject!
+    var trip: NSManagedObject?
+    var createdListener : ((NSManagedObject) -> Void)!
+    var updatedListener : ((NSManagedObject) -> Void)!
+    
     @IBOutlet var regno : UILabel!
     @IBOutlet var start : UITextField!
     @IBOutlet var end : UITextField!
@@ -20,6 +25,20 @@ class AddTripController: UIViewController {
     @IBAction func saveTrip(){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        if let selectedTrip = self.trip {
+
+            selectedTrip.setValue(self.vehicle.valueForKey("regno"), forKey: "regno")
+            selectedTrip.setValue((start.text as NSString).integerValue, forKey: "start")
+            selectedTrip.setValue((end.text as NSString).integerValue, forKey: "end")
+            selectedTrip.setValue(comment.text, forKey: "comment")
+            selectedTrip.setValue(date.date, forKey: "date")
+            
+            context.save(nil)
+
+            updatedListener(selectedTrip)
+            return;
+        }
         
         var trip = NSEntityDescription.insertNewObjectForEntityForName("Trips", inManagedObjectContext: context) as NSManagedObject
         
@@ -34,15 +53,20 @@ class AddTripController: UIViewController {
         createdListener(trip)
     }
     
-    var vehicle: NSManagedObject!
-    var createdListener : ((NSManagedObject) -> Void)!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         var tapBackground = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapBackground)
         regno.text = vehicle.valueForKey("regno") as String
+        
+        if let selectedTrip = self.trip
+        {
+            start.text = String((selectedTrip.valueForKey("start") as NSNumber).integerValue)
+            end.text = String((selectedTrip.valueForKey("end") as NSNumber).integerValue)
+            comment.text = selectedTrip.valueForKey("comment") as String
+            date.setDate(selectedTrip.valueForKey("date") as NSDate, animated: false)
+        }
     }
     
     func dismissKeyboard() {

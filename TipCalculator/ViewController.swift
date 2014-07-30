@@ -21,6 +21,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AppContext.eventListener.addEntityCreatedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                self.vehiclesList.vehicleCreated(vehicle)
+                self.navigationController.popViewControllerAnimated(true)
+            }
+            ))
+
         // Do any additional setup after loading the view, typically from a nib.
         self.vehiclesList.onVehicleSelected = onVehicleSelected
         self.vehiclesList.load()

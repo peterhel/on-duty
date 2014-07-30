@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TipCalculator.TripsTableView.tableView (TipCalculator.TripsTableView)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, cellForRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableViewCell&gt;:TripsTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TipCalculator.VehicleTripViewController.viewDidLoad (TipCalculator.VehicleTripViewController)() -&gt; ():VehicleTripViewController.swift">
       </ContextState>
    </ContextStates>

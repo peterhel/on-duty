@@ -35,9 +35,10 @@ class CreateVehicleController : UIViewController{
         
         context.save(nil)
         
-        if let callback = self.listener{
+        AppContext.eventListener.fireEntityCreated(vehicle)
+        /* if let callback = self.listener{
             callback(vehicle)
-        }
+        }*/
     }
     
     func setCreatedListener(closure: (vehicle:NSManagedObject!) -> Void) {

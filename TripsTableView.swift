@@ -11,14 +11,15 @@ import CoreData
 
 class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
 {
-    var trips: NSMutableArray?
-    
+    var trips = NSMutableArray()
+    var onTripSelected: ((trip:NSManagedObject)->())?
+
     func load(trips:NSMutableArray!){
         self.delegate = self
         self.dataSource = self
 
-        self.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        self.registerClass(TripsTableViewCell.self, forCellReuseIdentifier: "TripCell")
+
         self.trips = trips
     }
     
@@ -34,11 +35,7 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
     {
-        if let safetrips = self.trips
-        {
-            return safetrips.count
-        }
-        return 0
+        return self.trips.count
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -46,21 +43,19 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
-        if let safetrips = self.trips
-        {
+        let safetrips = self.trips
             var currentTrip: NSManagedObject = safetrips.objectAtIndex(indexPath.row) as NSManagedObject
             var date = currentTrip.valueForKey("date") as NSDate
             var formatter = NSDateFormatter()
-            formatter.dateStyle = .MediumStyle
-            formatter.timeStyle = .NoStyle
+            formatter.dateFormat = "yyyy-MM-dd"
             var dateStr = formatter.stringFromDate(date)
-            var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("TripCell") as TripsTableViewCell
+
             cell.textLabel.text = dateStr
+            cell.detailTextLabel.text = currentTrip.valueForKey("Comment") as String
             return cell
-        }
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel.text = "entripp"
-        return cell
+
+        
     }
 
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
@@ -72,6 +67,16 @@ class TripsTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
         }
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+let safetrips = self.trips
+            var selectedTrip = safetrips.objectAtIndex(indexPath.row) as NSManagedObject
+            if let callback = self.onTripSelected
+            {
+                callback(trip: selectedTrip)
+            }
     }
     
     func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) ->[AnyObject]!

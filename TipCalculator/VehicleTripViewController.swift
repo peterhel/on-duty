@@ -15,7 +15,17 @@ class VehicleTripViewController: UIViewController{
     @IBOutlet var tripsTableView : TripsTableView!
     
     var trips: NSMutableArray!
+    var selectedTripIndex: Int!
     
+    func onTripSelected(trip:NSManagedObject!){
+        self.selectedTripIndex = self.trips.indexOfObject(trip)
+        let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("AddTripController") as AddTripController
+        secondViewController.vehicle = vehicle
+        secondViewController.trip = trip
+        secondViewController.updatedListener = self.tripUpdated
+        self.navigationController.pushViewController(secondViewController, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,12 +40,20 @@ class VehicleTripViewController: UIViewController{
         
         println(trips)
         
+        tripsTableView.onTripSelected = self.onTripSelected
         tripsTableView.load(trips)
     }
     
     func tripCreated(trip: NSManagedObject){
         trips.insertObject(trip, atIndex: 0)
         self.tripsTableView.reloadData()
+        self.navigationController.popViewControllerAnimated(true)
+    }
+    
+    func tripUpdated(trip: NSManagedObject){
+        trips.replaceObjectAtIndex(self.selectedTripIndex, withObject: trip)
+        self.tripsTableView.reloadData()
+        self.navigationController.popViewControllerAnimated(true)
     }
     
     func addTrip(){

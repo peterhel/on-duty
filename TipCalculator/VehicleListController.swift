@@ -16,10 +16,20 @@ class VehicleListController: UIViewController
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add vehicle", style: UIBarButtonItemStyle.Plain, target: self, action: "createVehicle")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AppContext.eventListener.addEntityCreatedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                    self.vehiclesList.vehicleCreated(vehicle)
+                    self.navigationController.popViewControllerAnimated(true)
+            }
+        ))
+            
         self.vehiclesList.load()
     }
     
@@ -30,11 +40,9 @@ class VehicleListController: UIViewController
     
 
     
-    @IBAction func createVehicle(sender: AnyObject){
+    func createVehicle(){
         let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("CreateVehicleController") as CreateVehicleController
         
-        secondViewController.setCreatedListener(self.vehiclesList.vehicleCreated)
-
         self.navigationController.pushViewController(secondViewController, animated: true)
     }
 }
