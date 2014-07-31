@@ -228,65 +228,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXa-ZP-Wtm">
+                                <rect key="frame" x="20" y="216" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Registration Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6d-fG-pVa">
+                                <rect key="frame" x="20" y="76" width="164" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="9zk-RW-t5b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LXE-cw-3hT">
+                                <rect key="frame" x="20" y="143" width="164" height="29"/>
+                                <segments>
+                                    <segment title="Gas"/>
+                                    <segment title="Diesel"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OdJ-sL-4Ta">
+                                <rect key="frame" x="20" y="245" width="164" height="29"/>
+                                <segments>
+                                    <segment title="Me"/>
+                                    <segment title="Company"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-7V-Fvv">
+                                <rect key="frame" x="20" y="114" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkY-cb-mC2">
+                                <rect key="frame" x="20" y="281" width="164" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteVehicle:" destination="480-gD-QHC" eventType="touchUpInside" id="205-XG-nGU"/>
+                                    <action selector="saveVehicle:" destination="480-gD-QHC" eventType="touchUpInside" id="pNn-lI-JGZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wm-El-m5X">
-                                <rect key="frame" x="26" y="277" width="41" height="30"/>
-                                <state key="normal" title="Spara">
+                                <rect key="frame" x="20" y="319" width="164" height="30"/>
+                                <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveVehicle:" destination="480-gD-QHC" eventType="touchUpInside" id="TZe-ae-L0R"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ägs av" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXa-ZP-Wtm">
-                                <rect key="frame" x="20" y="212" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Registreringsnummer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6d-fG-pVa">
-                                <rect key="frame" x="20" y="109" width="164" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="R6V-Pl-Caq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LXE-cw-3hT">
-                                <rect key="frame" x="20" y="176" width="111" height="29"/>
-                                <segments>
-                                    <segment title="Bensin"/>
-                                    <segment title="Diesel"/>
-                                </segments>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OdJ-sL-4Ta">
-                                <rect key="frame" x="20" y="241" width="145" height="29"/>
-                                <segments>
-                                    <segment title="Mig"/>
-                                    <segment title="Företaget"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drivmedel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-7V-Fvv">
-                                <rect key="frame" x="20" y="147" width="78" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Fbh-7V-Fvv" firstAttribute="leading" secondItem="X6d-fG-pVa" secondAttribute="leading" id="3T9-Ha-Ugo"/>
-                            <constraint firstItem="aXa-ZP-Wtm" firstAttribute="centerX" secondItem="2wm-El-m5X" secondAttribute="centerX" id="5CO-Dq-iyX"/>
-                            <constraint firstItem="Fbh-7V-Fvv" firstAttribute="top" secondItem="X6d-fG-pVa" secondAttribute="bottom" constant="8" symbolic="YES" id="6eV-Sf-UMS"/>
-                            <constraint firstItem="X6d-fG-pVa" firstAttribute="top" secondItem="RmP-WJ-phO" secondAttribute="bottom" constant="89" id="IpX-Gl-hpJ"/>
-                            <constraint firstItem="aXa-ZP-Wtm" firstAttribute="leading" secondItem="OdJ-sL-4Ta" secondAttribute="leading" id="Nf5-aV-gGz"/>
-                            <constraint firstItem="LXE-cw-3hT" firstAttribute="leading" secondItem="aXa-ZP-Wtm" secondAttribute="leading" id="S7b-3M-vcW"/>
-                            <constraint firstItem="X6d-fG-pVa" firstAttribute="leading" secondItem="zlG-iP-Ymc" secondAttribute="leading" constant="20" symbolic="YES" id="XJN-MM-pjE"/>
-                            <constraint firstItem="LXE-cw-3hT" firstAttribute="leading" secondItem="Fbh-7V-Fvv" secondAttribute="leading" id="Xj8-lO-aF3"/>
-                            <constraint firstItem="aXa-ZP-Wtm" firstAttribute="top" secondItem="LXE-cw-3hT" secondAttribute="bottom" constant="8" symbolic="YES" id="YRe-mU-i6n"/>
-                            <constraint firstItem="LXE-cw-3hT" firstAttribute="top" secondItem="Fbh-7V-Fvv" secondAttribute="bottom" constant="8" symbolic="YES" id="ayk-0V-igU"/>
-                            <constraint firstItem="OdJ-sL-4Ta" firstAttribute="top" secondItem="aXa-ZP-Wtm" secondAttribute="bottom" constant="8" symbolic="YES" id="nqC-kk-rxI"/>
-                            <constraint firstItem="2wm-El-m5X" firstAttribute="top" secondItem="OdJ-sL-4Ta" secondAttribute="bottom" constant="8" symbolic="YES" id="zOr-ei-O95"/>
+                            <constraint firstItem="Fbh-7V-Fvv" firstAttribute="leading" secondItem="LXE-cw-3hT" secondAttribute="leading" id="3gO-lU-dCR"/>
+                            <constraint firstItem="LXE-cw-3hT" firstAttribute="trailing" secondItem="X6d-fG-pVa" secondAttribute="trailing" id="5CW-CM-0uL"/>
+                            <constraint firstItem="LXE-cw-3hT" firstAttribute="trailing" secondItem="OdJ-sL-4Ta" secondAttribute="trailing" id="6fs-Pw-Zm5"/>
+                            <constraint firstItem="UkY-cb-mC2" firstAttribute="trailing" secondItem="2wm-El-m5X" secondAttribute="trailing" id="9yu-5m-IDC"/>
+                            <constraint firstItem="UkY-cb-mC2" firstAttribute="trailing" secondItem="OdJ-sL-4Ta" secondAttribute="trailing" id="A7X-DL-U48"/>
+                            <constraint firstItem="OdJ-sL-4Ta" firstAttribute="leading" secondItem="UkY-cb-mC2" secondAttribute="leading" id="Cwa-Bw-anx"/>
+                            <constraint firstItem="2wm-El-m5X" firstAttribute="top" secondItem="UkY-cb-mC2" secondAttribute="bottom" constant="8" symbolic="YES" id="FU1-zl-7AD"/>
+                            <constraint firstItem="Fbh-7V-Fvv" firstAttribute="top" secondItem="X6d-fG-pVa" secondAttribute="bottom" constant="8" symbolic="YES" id="J2A-tU-dTw"/>
+                            <constraint firstItem="OdJ-sL-4Ta" firstAttribute="leading" secondItem="aXa-ZP-Wtm" secondAttribute="leading" id="J7I-32-eD1"/>
+                            <constraint firstAttribute="bottom" secondItem="UkY-cb-mC2" secondAttribute="bottom" constant="102" id="JFs-u5-Kw5"/>
+                            <constraint firstItem="OdJ-sL-4Ta" firstAttribute="top" secondItem="aXa-ZP-Wtm" secondAttribute="bottom" constant="8" symbolic="YES" id="MYL-z6-eK3"/>
+                            <constraint firstItem="LXE-cw-3hT" firstAttribute="top" secondItem="Fbh-7V-Fvv" secondAttribute="bottom" constant="8" symbolic="YES" id="Mfq-jm-T6z"/>
+                            <constraint firstItem="X6d-fG-pVa" firstAttribute="leading" secondItem="zlG-iP-Ymc" secondAttribute="leading" constant="20" symbolic="YES" id="OAc-Pe-QLI"/>
+                            <constraint firstItem="X6d-fG-pVa" firstAttribute="leading" secondItem="Fbh-7V-Fvv" secondAttribute="leading" id="YFg-0w-BzA"/>
+                            <constraint firstItem="UkY-cb-mC2" firstAttribute="leading" secondItem="2wm-El-m5X" secondAttribute="leading" id="ZPZ-Tl-qM9"/>
+                            <constraint firstItem="aXa-ZP-Wtm" firstAttribute="top" secondItem="LXE-cw-3hT" secondAttribute="bottom" constant="45" id="nyG-YW-LaZ"/>
+                            <constraint firstItem="aXa-ZP-Wtm" firstAttribute="leading" secondItem="LXE-cw-3hT" secondAttribute="leading" id="r1y-Ha-Mgc"/>
+                            <constraint firstItem="UkY-cb-mC2" firstAttribute="top" secondItem="OdJ-sL-4Ta" secondAttribute="bottom" constant="8" symbolic="YES" id="rN1-NY-t7D"/>
+                            <constraint firstItem="X6d-fG-pVa" firstAttribute="top" secondItem="RmP-WJ-phO" secondAttribute="bottom" constant="56" id="zHb-s7-o2p"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JFs-u5-Kw5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
@@ -294,19 +316,17 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
+                        <outlet property="btnDelete" destination="UkY-cb-mC2" id="Caw-18-FXB"/>
+                        <outlet property="btnSave" destination="2wm-El-m5X" id="X8O-hw-ihH"/>
                         <outlet property="drivmedel" destination="LXE-cw-3hT" id="ck6-4a-4A7"/>
                         <outlet property="owner" destination="OdJ-sL-4Ta" id="nR8-lY-1rw"/>
                         <outlet property="registrationNumber" destination="X6d-fG-pVa" id="zf3-5t-vE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJz-v4-Ix2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="igB-ED-U7D">
-                    <connections>
-                        <action selector="viewTapped:" destination="480-gD-QHC" id="DQg-oK-NSp"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="igB-ED-U7D"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="1418"/>
+            <point key="canvasLocation" x="1578" y="1471"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RiO-ZI-Vaz">

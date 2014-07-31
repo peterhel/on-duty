@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class VehicleTripViewController: UIViewController{
-    var vehicle:NSManagedObject!
+    var vehicle:Vehicle!
     
     @IBOutlet var tripsTableView : TripsTableView!
     
@@ -35,7 +35,7 @@ class VehicleTripViewController: UIViewController{
         
         var request = NSFetchRequest(entityName: "Trips")
         request.returnsObjectsAsFaults = false
-        request.predicate = NSPredicate(format: "regno = %@", vehicle.valueForKey("regno") as String)
+        request.predicate = NSPredicate(format: "regno = %@", vehicle.regno)
         trips = NSMutableArray(array: context.executeFetchRequest(request, error: nil))
         
         println(trips)

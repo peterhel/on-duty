@@ -9,9 +9,9 @@
 import CoreData
 
 class Listener {
-    var callback:(NSManagedObject)->Void
+    var callback:(AnyObject)->Void
     
-    init(listener: (NSManagedObject)->Void){
+    init(listener: (AnyObject)->Void){
         self.callback = listener
     }
 }

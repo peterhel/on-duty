@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TipCalculator/CreateVehicleController.swift"
-            timestampString = "428486116.697689"
+            timestampString = "428519100.787764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "saveVehicle(_:)"
             landmarkType = "5">
          </BreakpointContent>

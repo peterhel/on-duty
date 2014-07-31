@@ -11,7 +11,7 @@ import CoreData
 
 class AddTripController: UIViewController {
     
-    var vehicle: NSManagedObject!
+    var vehicle: Vehicle!
     var trip: NSManagedObject?
     var createdListener : ((NSManagedObject) -> Void)!
     var updatedListener : ((NSManagedObject) -> Void)!
@@ -22,13 +22,27 @@ class AddTripController: UIViewController {
     @IBOutlet var comment : UITextView!
     @IBOutlet var date : UIDatePicker!
     
+    @IBAction func deleteTrip(){
+        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        if let selectedTrip = self.trip {
+            context.deleteObject(selectedTrip)
+            
+            context.save(nil)
+            
+            AppContext.eventListener.fireEntityDeleted("Vehice", entity: selectedTrip)
+            return;
+        }
+    }
+    
     @IBAction func saveTrip(){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         var context: NSManagedObjectContext = appDel.managedObjectContext
         
         if let selectedTrip = self.trip {
 
-            selectedTrip.setValue(self.vehicle.valueForKey("regno"), forKey: "regno")
+            selectedTrip.setValue(self.vehicle.regno, forKey: "regno")
             selectedTrip.setValue((start.text as NSString).integerValue, forKey: "start")
             selectedTrip.setValue((end.text as NSString).integerValue, forKey: "end")
             selectedTrip.setValue(comment.text, forKey: "comment")
@@ -42,7 +56,7 @@ class AddTripController: UIViewController {
         
         var trip = NSEntityDescription.insertNewObjectForEntityForName("Trips", inManagedObjectContext: context) as NSManagedObject
         
-        trip.setValue(self.vehicle.valueForKey("regno"), forKey: "regno")
+        trip.setValue(self.vehicle.regno, forKey: "regno")
         trip.setValue((start.text as NSString).integerValue, forKey: "start")
         trip.setValue((end.text as NSString).integerValue, forKey: "end")
         trip.setValue(comment.text, forKey: "comment")
@@ -58,7 +72,7 @@ class AddTripController: UIViewController {
         
         var tapBackground = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapBackground)
-        regno.text = vehicle.valueForKey("regno") as String
+        regno.text = vehicle.regno
         
         if let selectedTrip = self.trip
         {

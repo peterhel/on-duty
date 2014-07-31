@@ -11,11 +11,29 @@ import CoreData
 
 class CreateVehicleController : UIViewController{
     
-    var vehicle: NSManagedObject?
+    var vehicle: Vehicle?
     
     @IBOutlet var registrationNumber : UITextField!
     @IBOutlet var drivmedel : UISegmentedControl!
     @IBOutlet var owner : UISegmentedControl!
+    @IBOutlet var btnSave : UIButton!
+    @IBOutlet var btnDelete : UIButton!
+    
+    @IBAction func deleteVehicle(sender:AnyObject){
+        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        if let vehicleToEdit = self.vehicle {
+            context.deleteObject(Vehicles.getManagedObjectFor(vehicleToEdit))
+
+            AppContext.eventListener.fireEntityDeleted("Vehicle", entity: vehicleToEdit)
+            
+            context.save(nil)
+            
+            self.registrationNumber.enabled = true
+            return
+        }
+    }
     
     @IBAction func saveVehicle(sender:AnyObject){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -25,8 +43,9 @@ class CreateVehicleController : UIViewController{
         var drivm: Bool = drivmedel.selectedSegmentIndex == 1
         var own: Bool = owner.selectedSegmentIndex == 1
 
-        if let vehicleToEdit = self.vehicle {
+        if let vehicle = self.vehicle {
             println("Updating vehicle")
+            var vehicleToEdit = Vehicles.getManagedObjectFor(vehicle)
             vehicleToEdit.setValue(drivm, forKey: "fuel")
             vehicleToEdit.setValue(own, forKey: "owner")
 
@@ -53,11 +72,17 @@ class CreateVehicleController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let vehicleToEdit = self.vehicle{
+        self.btnDelete.enabled = false
+        
+        var tapBackground = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapBackground)
+
+        if let vehicle = self.vehicle{
             self.registrationNumber.enabled = false
-            self.registrationNumber.text = vehicleToEdit.valueForKey("regno") as String
-            self.drivmedel.selectedSegmentIndex = vehicleToEdit.valueForKey("fuel") as Bool ? 1 : 0
-            self.owner.selectedSegmentIndex = vehicleToEdit.valueForKey("owner") as Bool ? 1 : 0
+            self.btnDelete.enabled = true
+            self.registrationNumber.text = vehicle.regno
+            self.drivmedel.selectedSegmentIndex = vehicle.fuel ? 1 : 0
+            self.owner.selectedSegmentIndex = vehicle.owner ? 1 : 0
         }
     }
     
@@ -66,7 +91,7 @@ class CreateVehicleController : UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func viewTapped(sender: AnyObject){
+    func dismissKeyboard(){
         registrationNumber.resignFirstResponder()
     }
 }

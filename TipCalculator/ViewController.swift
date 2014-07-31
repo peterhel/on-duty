@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var vehiclesList: VehicleMainTableView!
 
-    func onVehicleSelected(vehicle:NSManagedObject!){
+    func onVehicleSelected(vehicle:Vehicle!){
         let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("VehicleTripViewController") as VehicleTripViewController
         secondViewController.vehicle = vehicle
         self.navigationController.pushViewController(secondViewController, animated: true)

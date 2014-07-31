@@ -11,9 +11,7 @@ import UIKit
 import CoreData
 
 class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
-    var vehicles: NSMutableArray = [];
-
-    var onVehicleSelected: ((vehicle:NSManagedObject)->())?
+    var onVehicleSelected: ((vehicle:Vehicle)->())?
     
     func load(){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -21,7 +19,8 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
         
         var request = NSFetchRequest(entityName: "Vehicle")
         request.returnsObjectsAsFaults = false
-        vehicles = NSMutableArray(array: context.executeFetchRequest(request, error: nil))
+        
+        self.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.allowsSelection = true;
         
@@ -30,23 +29,21 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
         
         AppContext.eventListener.addEntityCreatedListener("Vehicle", listener: Listener (
             {
-                (vehicle: NSManagedObject) -> Void in
-                self.vehicles.insertObject(vehicle, atIndex: 0)
+                (vehicle: AnyObject) -> Void in
                 self.reloadData()
             }
         ))
         
         AppContext.eventListener.addEntityUpdatedListener("Vehicle", listener: Listener (
             {
-                (vehicle: NSManagedObject) -> Void in
+                (vehicle: AnyObject) -> Void in
                 self.reloadData()
             }
         ))
         
         AppContext.eventListener.addEntityDeletedListener("Vehicle", listener: Listener (
             {
-                (vehicle: NSManagedObject) -> Void in
-                self.vehicles.removeObject(vehicle)
+                (vehicle: AnyObject) -> Void in
                 self.reloadData()
             }
         ))
@@ -54,7 +51,7 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView:UITableView!, numberOfRowsInSection section:Int)->Int
     {
-        return vehicles.count
+        return Vehicles.all.count
     }
     
     func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
@@ -69,16 +66,20 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell
     {
-        var  cell = UITableViewCell()// tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        var vehicleData = vehicles[indexPath.row] as NSManagedObject
-        cell.textLabel.text=vehicleData.valueForKey("regno") as String
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        if cell == nil
+        {
+            cell = UITableViewCell()
+        }
+        var vehicleData = Vehicles.all[indexPath.row]
+        cell.textLabel.text = vehicleData.regno
         cell.selectionStyle = UITableViewCellSelectionStyle.Default
         return cell
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
-        var selectedVehicle = self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject
+        var selectedVehicle = Vehicles.all[indexPath.row]
         if let callback = self.onVehicleSelected
         {
             callback(vehicle: selectedVehicle)

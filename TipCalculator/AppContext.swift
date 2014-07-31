@@ -65,9 +65,9 @@ class EventListener {
         }
     }
     
-    func fireEntityDeleted(entity: NSManagedObject) -> Void {
-        var listeners = getDeletedListenersFor(entity.entity.name)
-        println("Incoming deleted event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
+    func fireEntityDeleted(type: String, entity: AnyObject) -> Void {
+        var listeners = getDeletedListenersFor(type)
+        println("Incoming deleted event for '\(type)' going out to \(listeners.count) listeners")
         for l in listeners
         {
             println("Executing listener callback")

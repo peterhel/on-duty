@@ -18,6 +18,7 @@
 		D048A68A198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A689198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m */; };
 		D048A68D198A11C700FAA1D7 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A68C198A11C700FAA1D7 /* SWUtilityButtonView.m */; };
 		D048A690198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A68F198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		D048A696198AAF0000FAA1D7 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048A695198AAF0000FAA1D7 /* Vehicle.swift */; };
 		D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */; };
 		D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */; };
 		D0AB8DCD1986A2EF00864CAC /* TripsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */; };
@@ -63,6 +64,7 @@
 		D048A68C198A11C700FAA1D7 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonView.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonView.m"; sourceTree = "<group>"; };
 		D048A68E198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonTapGestureRecognizer.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.h"; sourceTree = "<group>"; };
 		D048A68F198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonTapGestureRecognizer.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.m"; sourceTree = "<group>"; };
+		D048A695198AAF0000FAA1D7 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleMainTableView.swift; path = TipCalculator/VehicleMainTableView.swift; sourceTree = "<group>"; };
 		D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTripViewController.swift; sourceTree = "<group>"; };
 		D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			name = SWTableViewCell;
 			sourceTree = "<group>";
 		};
+		D048A694198AAEF000FAA1D7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D048A695198AAF0000FAA1D7 /* Vehicle.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		D0C993581984088F00968EF2 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		D0EE3DBB197EA23800CE52EA /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				D048A694198AAEF000FAA1D7 /* Components */,
 				D048A67E198A10D800FAA1D7 /* SWTableViewCell */,
 				D048A63519894B2300FAA1D7 /* EventHandling */,
 				D0C993581984088F00968EF2 /* ViewComponents */,
@@ -316,6 +327,7 @@
 				D0B282711986AAFC0008F706 /* AddTripController.swift in Sources */,
 				D048A6341989430C00FAA1D7 /* AppContext.swift in Sources */,
 				D048A63719894B3400FAA1D7 /* Listener.swift in Sources */,
+				D048A696198AAF0000FAA1D7 /* Vehicle.swift in Sources */,
 				D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */,
 				D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */,
 				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,

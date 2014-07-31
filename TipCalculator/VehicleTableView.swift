@@ -11,16 +11,9 @@ import UIKit
 import CoreData
 
 class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
-    var vehicles: NSMutableArray = [];
-    var selectedVehicle : NSManagedObject!
+    var selectedVehicle : Vehicle!
     
     func load(){
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        var context:NSManagedObjectContext = appDel.managedObjectContext
-        
-        var request = NSFetchRequest(entityName: "Vehicle")
-        request.returnsObjectsAsFaults = false
-        vehicles = NSMutableArray(array: context.executeFetchRequest(request, error: nil))
         self.registerClass(UMTableViewCell.self, forCellReuseIdentifier: "cell")
         self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.delegate=self;
@@ -28,21 +21,16 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     }
     
     func vehicleCreated(vehicle:NSManagedObject!) -> Void{
-        println("Listener callback executed!")
-        self.vehicles.insertObject(vehicle, atIndex: 0)
         self.reloadData()
     }
 
     func vehicleUpdated(vehicle:NSManagedObject!) -> Void {
-        println("Listener callback executed!")
-        var index = self.vehicles.indexOfObject(self.selectedVehicle)
-        self.vehicles.replaceObjectAtIndex(index, withObject: vehicle)
         self.reloadData()
     }
     
     func tableView(tableView:UITableView!, numberOfRowsInSection section:Int)->Int
     {
-        return vehicles.count
+        return Vehicles.all.count
     }
     
     func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
@@ -55,11 +43,11 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         return 1
     }
     
-    var onVehicleSelected: ((NSManagedObject) -> Void)?
+    var onVehicleSelected: ((Vehicle) -> Void)?
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
-        self.selectedVehicle = self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject
+        self.selectedVehicle = Vehicles.all[indexPath.row]
         if let callback = self.onVehicleSelected
         {
             callback(selectedVehicle)
@@ -70,8 +58,8 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell
     {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UMTableViewCell
-        var vehicleData = vehicles[indexPath.row] as NSManagedObject
-        cell.textLabel.text=vehicleData.valueForKey("regno") as String
+        var vehicleData = Vehicles.all[indexPath.row]
+        cell.textLabel.text=vehicleData.regno
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         //cell.setLeftUtilityButtons(self.leftButtons(), withButtonWidth: 72.0)
