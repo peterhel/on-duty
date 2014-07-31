@@ -36,6 +36,13 @@ class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSo
             }
         ))
         
+        AppContext.eventListener.addEntityUpdatedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                self.reloadData()
+            }
+        ))
+        
         AppContext.eventListener.addEntityDeletedListener("Vehicle", listener: Listener (
             {
                 (vehicle: NSManagedObject) -> Void in

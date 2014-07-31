@@ -12,7 +12,8 @@ import CoreData
 
 class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     var vehicles: NSMutableArray = [];
-
+    var selectedVehicle : NSManagedObject!
+    
     func load(){
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         var context:NSManagedObjectContext = appDel.managedObjectContext
@@ -20,7 +21,8 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         var request = NSFetchRequest(entityName: "Vehicle")
         request.returnsObjectsAsFaults = false
         vehicles = NSMutableArray(array: context.executeFetchRequest(request, error: nil))
-        
+        self.registerClass(UMTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.delegate=self;
         self.dataSource=self;
     }
@@ -31,6 +33,13 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         self.reloadData()
     }
 
+    func vehicleUpdated(vehicle:NSManagedObject!) -> Void {
+        println("Listener callback executed!")
+        var index = self.vehicles.indexOfObject(self.selectedVehicle)
+        self.vehicles.replaceObjectAtIndex(index, withObject: vehicle)
+        self.reloadData()
+    }
+    
     func tableView(tableView:UITableView!, numberOfRowsInSection section:Int)->Int
     {
         return vehicles.count
@@ -46,53 +55,64 @@ class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         return 1
     }
     
+    var onVehicleSelected: ((NSManagedObject) -> Void)?
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+        self.selectedVehicle = self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject
+        if let callback = self.onVehicleSelected
+        {
+            callback(selectedVehicle)
+        }
+    }
+
+    
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell
     {
-        var  cell = UITableViewCell()// tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UMTableViewCell
         var vehicleData = vehicles[indexPath.row] as NSManagedObject
         cell.textLabel.text=vehicleData.valueForKey("regno") as String
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        //cell.setLeftUtilityButtons(self.leftButtons(), withButtonWidth: 72.0)
+        //cell.setRightUtilityButtons(self.rightButtons(), withButtonWidth: 50.0)
         return cell
     }
     
-    // Override to support conditional editing of the table view.
-    // This only needs to be implemented if you are going to be returning NO
-    // for some items. By default, all items are editable.
-    func tableView(tableView:UITableView, canEditRowAtIndexPath indexPath:NSIndexPath) -> Bool {
-    // Return YES if you want the specified item to be editable.
-    return true;
-    }
-    
-
-    
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
-    }
-    
-    func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) ->[AnyObject]!
+    func leftButtons() -> NSArray
     {
-    
-/*    var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "More", handler:{action, indexpath in
-        println("MORE•ACTION");
-    });*/
-   // moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
-    
-    var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
-            var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-            var context:NSManagedObjectContext = appDel.managedObjectContext
+        var buttons = Array<UIButton>()
         
-            var vehicleToDelete = self.vehicles.objectAtIndex(indexPath.row) as NSManagedObject
-            context.deleteObject(vehicleToDelete)
-            context.save(nil)
-        
-            AppContext.eventListener.fireEntityDeleted(vehicleToDelete)
-        
-            self.vehicles.removeObjectAtIndex(indexpath.row)
-            tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Automatic)
-    });
+        buttons.append(createButton(UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0), action: Selector("deleteRow")))
+        buttons.append(createButton(UIColor(red: 0.78, green: 0, blue: 0.8, alpha: 1.0), action: Selector("deleteRow")))
+
+        return buttons
+    }
     
-        return [deleteRowAction];
+    func createButton(color: UIColor, action: Selector) -> UIButton
+    {
+        var button = UIButton()
+        button.backgroundColor = color
+        button.titleLabel.text = "More"
+        button.titleLabel.textColor = UIColor.whiteColor()
+        button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
+        
+        return button
+    }
+    
+    func deleteRow(){
+        println("delete mottafucka!")
+    }
+    
+    func rightButtons() -> NSArray
+    {
+        var buttons = Array<UIButton>()
+        var button = UIButton()
+//        button.buttonType = .Custom
+        button.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
+        button.titleLabel.text = "More"
+        
+        buttons.append(button)
+        return buttons
     }
 }

@@ -11,21 +11,33 @@ import CoreData
 
 class CreateVehicleController : UIViewController{
     
-    var listener : ((NSManagedObject)->Void)!
+    var vehicle: NSManagedObject?
     
     @IBOutlet var registrationNumber : UITextField!
     @IBOutlet var drivmedel : UISegmentedControl!
     @IBOutlet var owner : UISegmentedControl!
     
     @IBAction func saveVehicle(sender:AnyObject){
-        println("Saving vehicle")
+        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var context: NSManagedObjectContext = appDel.managedObjectContext
         
         var regNo: String = registrationNumber.text
         var drivm: Bool = drivmedel.selectedSegmentIndex == 1
         var own: Bool = owner.selectedSegmentIndex == 1
+
+        if let vehicleToEdit = self.vehicle {
+            println("Updating vehicle")
+            vehicleToEdit.setValue(drivm, forKey: "fuel")
+            vehicleToEdit.setValue(own, forKey: "owner")
+
+            context.save(nil)
+            
+            AppContext.eventListener.fireEntityUpdated(vehicleToEdit)
+            self.registrationNumber.enabled = true
+            return
+        }
+        println("Saving vehicle")
         
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        var context: NSManagedObjectContext = appDel.managedObjectContext
         
         var vehicle = NSEntityDescription.insertNewObjectForEntityForName("Vehicle", inManagedObjectContext: context) as NSManagedObject
         
@@ -36,20 +48,17 @@ class CreateVehicleController : UIViewController{
         context.save(nil)
         
         AppContext.eventListener.fireEntityCreated(vehicle)
-        /* if let callback = self.listener{
-            callback(vehicle)
-        }*/
-    }
-    
-    func setCreatedListener(closure: (vehicle:NSManagedObject!) -> Void) {
-        listener=(closure)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        if let vehicleToEdit = self.vehicle{
+            self.registrationNumber.enabled = false
+            self.registrationNumber.text = vehicleToEdit.valueForKey("regno") as String
+            self.drivmedel.selectedSegmentIndex = vehicleToEdit.valueForKey("fuel") as Bool ? 1 : 0
+            self.owner.selectedSegmentIndex = vehicleToEdit.valueForKey("owner") as Bool ? 1 : 0
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -3,12 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GLOBAL">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.trips">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "TipCalculator.VehicleMainTableView.(load (TipCalculator.VehicleMainTableView) -&gt; () -&gt; ()).(closure #2):VehicleMainTableView.swift">
       </ContextState>
       <ContextState
          contextName = "TipCalculator.TripsTableView.tableView (TipCalculator.TripsTableView)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, cellForRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableViewCell&gt;:TripsTableView.swift">

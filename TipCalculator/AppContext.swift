@@ -31,6 +31,13 @@ class EventListener {
         println("Listener added for Created '\(event)'. Total \(listeners.count) listeners")
     }
     
+    func addEntityUpdatedListener(event: String, listener: Listener) -> Void {
+        var listeners = getUpdatedListenersFor(event)
+        listeners.append(listener)
+        entityUpdatedListeners[event] = listeners
+        println("Listener added for Updated '\(event)'. Total \(listeners.count) listeners")
+    }
+    
     func addEntityDeletedListener(event: String, listener: Listener) -> Void {
         var listeners = getDeletedListenersFor(event)
         listeners.append(listener)
@@ -41,6 +48,16 @@ class EventListener {
     func fireEntityCreated(entity: NSManagedObject) -> Void {
         var listeners = getCreatedListenersFor(entity.entity.name)
         println("Incoming created event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
+        for l in listeners
+        {
+            println("Executing listener callback")
+            l.callback(entity)
+        }
+    }
+    
+    func fireEntityUpdated(entity: NSManagedObject) -> Void {
+        var listeners = getUpdatedListenersFor(entity.entity.name)
+        println("Incoming updated event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
         for l in listeners
         {
             println("Executing listener callback")
@@ -70,6 +87,18 @@ class EventListener {
         }
     }
 
+    func getUpdatedListenersFor(key: String) -> [Listener]
+    {
+        if var listeners = entityUpdatedListeners[key]{
+            return listeners
+        }
+        else{
+            var listeners = [Listener]()
+            self.entityUpdatedListeners[key] = listeners
+            return listeners
+        }
+    }
+    
     func getDeletedListenersFor(key: String) -> [Listener]
     {
         if var listeners = entityDeletedListeners[key]{

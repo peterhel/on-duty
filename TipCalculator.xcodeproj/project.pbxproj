@@ -12,6 +12,12 @@
 		D048A6321989334500FAA1D7 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048A6311989334500FAA1D7 /* TripsTableViewCell.swift */; };
 		D048A6341989430C00FAA1D7 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048A6331989430C00FAA1D7 /* AppContext.swift */; };
 		D048A63719894B3400FAA1D7 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048A63619894B3400FAA1D7 /* Listener.swift */; };
+		D048A681198A10FB00FAA1D7 /* UMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A680198A10FB00FAA1D7 /* UMTableViewCell.m */; };
+		D048A684198A112000FAA1D7 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A683198A112000FAA1D7 /* SWTableViewCell.m */; };
+		D048A687198A117B00FAA1D7 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A686198A117B00FAA1D7 /* SWCellScrollView.m */; };
+		D048A68A198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A689198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m */; };
+		D048A68D198A11C700FAA1D7 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A68C198A11C700FAA1D7 /* SWUtilityButtonView.m */; };
+		D048A690198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D048A68F198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */; };
 		D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */; };
 		D0AB8DCD1986A2EF00864CAC /* TripsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */; };
@@ -44,6 +50,19 @@
 		D048A6311989334500FAA1D7 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		D048A6331989430C00FAA1D7 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		D048A63619894B3400FAA1D7 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
+		D048A67D198A109300FAA1D7 /* TipCalculator-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TipCalculator-bridging-header.h"; sourceTree = "<group>"; };
+		D048A67F198A10FB00FAA1D7 /* UMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMTableViewCell.h; path = "../../SWTableViewCell-master/SWTableViewCell/UMTableViewCell.h"; sourceTree = "<group>"; };
+		D048A680198A10FB00FAA1D7 /* UMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMTableViewCell.m; path = "../../SWTableViewCell-master/SWTableViewCell/UMTableViewCell.m"; sourceTree = "<group>"; };
+		D048A682198A112000FAA1D7 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWTableViewCell.h"; sourceTree = "<group>"; };
+		D048A683198A112000FAA1D7 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWTableViewCell.m"; sourceTree = "<group>"; };
+		D048A685198A117B00FAA1D7 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWCellScrollView.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWCellScrollView.h"; sourceTree = "<group>"; };
+		D048A686198A117B00FAA1D7 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWCellScrollView.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWCellScrollView.m"; sourceTree = "<group>"; };
+		D048A688198A11A600FAA1D7 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWLongPressGestureRecognizer.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.h"; sourceTree = "<group>"; };
+		D048A689198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWLongPressGestureRecognizer.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.m"; sourceTree = "<group>"; };
+		D048A68B198A11C700FAA1D7 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonView.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonView.h"; sourceTree = "<group>"; };
+		D048A68C198A11C700FAA1D7 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonView.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonView.m"; sourceTree = "<group>"; };
+		D048A68E198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonTapGestureRecognizer.h; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.h"; sourceTree = "<group>"; };
+		D048A68F198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonTapGestureRecognizer.m; path = "../../SWTableViewCell-master/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.m"; sourceTree = "<group>"; };
 		D0AB8DC81986936400864CAC /* VehicleMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleMainTableView.swift; path = TipCalculator/VehicleMainTableView.swift; sourceTree = "<group>"; };
 		D0AB8DCA19869DBF00864CAC /* VehicleTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTripViewController.swift; sourceTree = "<group>"; };
 		D0AB8DCC1986A2EF00864CAC /* TripsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableView.swift; sourceTree = "<group>"; };
@@ -91,6 +110,25 @@
 			name = EventHandling;
 			sourceTree = "<group>";
 		};
+		D048A67E198A10D800FAA1D7 /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D048A68E198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.h */,
+				D048A68F198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m */,
+				D048A68B198A11C700FAA1D7 /* SWUtilityButtonView.h */,
+				D048A68C198A11C700FAA1D7 /* SWUtilityButtonView.m */,
+				D048A688198A11A600FAA1D7 /* SWLongPressGestureRecognizer.h */,
+				D048A689198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m */,
+				D048A685198A117B00FAA1D7 /* SWCellScrollView.h */,
+				D048A686198A117B00FAA1D7 /* SWCellScrollView.m */,
+				D048A682198A112000FAA1D7 /* SWTableViewCell.h */,
+				D048A683198A112000FAA1D7 /* SWTableViewCell.m */,
+				D048A67F198A10FB00FAA1D7 /* UMTableViewCell.h */,
+				D048A680198A10FB00FAA1D7 /* UMTableViewCell.m */,
+			);
+			name = SWTableViewCell;
+			sourceTree = "<group>";
+		};
 		D0C993581984088F00968EF2 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +144,7 @@
 		D0EE3DB0197EA23800CE52EA = {
 			isa = PBXGroup;
 			children = (
+				D048A67D198A109300FAA1D7 /* TipCalculator-bridging-header.h */,
 				D0EE3DBB197EA23800CE52EA /* TipCalculator */,
 				D01290511980E83700A620FE /* CoreData.framework */,
 				D0EE3DDB197EA28800CE52EA /* TipCalculatorModel.swift */,
@@ -127,6 +166,7 @@
 		D0EE3DBB197EA23800CE52EA /* TipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				D048A67E198A10D800FAA1D7 /* SWTableViewCell */,
 				D048A63519894B2300FAA1D7 /* EventHandling */,
 				D0C993581984088F00968EF2 /* ViewComponents */,
 				D01290541980E88E00A620FE /* OnDuty.xcdatamodeld */,
@@ -269,18 +309,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0AB8DCB19869DBF00864CAC /* VehicleTripViewController.swift in Sources */,
+				D048A690198A11E200FAA1D7 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				D048A681198A10FB00FAA1D7 /* UMTableViewCell.m in Sources */,
 				D0EE3DDC197EA28800CE52EA /* TipCalculatorModel.swift in Sources */,
+				D048A687198A117B00FAA1D7 /* SWCellScrollView.m in Sources */,
 				D0B282711986AAFC0008F706 /* AddTripController.swift in Sources */,
 				D048A6341989430C00FAA1D7 /* AppContext.swift in Sources */,
 				D048A63719894B3400FAA1D7 /* Listener.swift in Sources */,
 				D01290561980E88E00A620FE /* OnDuty.xcdatamodeld in Sources */,
 				D0AB8DC91986936400864CAC /* VehicleMainTableView.swift in Sources */,
 				D0EE3DE01980509700CE52EA /* VehicleListController.swift in Sources */,
+				D048A684198A112000FAA1D7 /* SWTableViewCell.m in Sources */,
+				D048A68A198A11A600FAA1D7 /* SWLongPressGestureRecognizer.m in Sources */,
 				D0EE3DE21980603600CE52EA /* CreateVehicleController.swift in Sources */,
 				D048A6321989334500FAA1D7 /* TripsTableViewCell.swift in Sources */,
 				D0C993571984059E00968EF2 /* VehicleTableView.swift in Sources */,
 				D0EE3DDE197EA2B700CE52EA /* TipCalculator.swift in Sources */,
 				D0EE3DC1197EA23800CE52EA /* ViewController.swift in Sources */,
+				D048A68D198A11C700FAA1D7 /* SWUtilityButtonView.m in Sources */,
 				D0AB8DCD1986A2EF00864CAC /* TripsTableView.swift in Sources */,
 				D0EE3DBF197EA23800CE52EA /* AppDelegate.swift in Sources */,
 			);
@@ -401,6 +447,7 @@
 				INFOPLIST_FILE = TipCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TipCalculator-bridging-header.h";
 			};
 			name = Debug;
 		};
@@ -412,6 +459,7 @@
 				INFOPLIST_FILE = TipCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TipCalculator-bridging-header.h";
 			};
 			name = Release;
 		};

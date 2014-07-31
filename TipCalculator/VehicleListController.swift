@@ -29,7 +29,25 @@ class VehicleListController: UIViewController
                     self.navigationController.popViewControllerAnimated(true)
             }
         ))
+        
+        AppContext.eventListener.addEntityUpdatedListener("Vehicle", listener: Listener (
+            {
+                (vehicle: NSManagedObject) -> Void in
+                self.vehiclesList.vehicleUpdated(vehicle)
+                self.navigationController.popViewControllerAnimated(true)
+            }
+        ))
+        
+        self.vehiclesList.onVehicleSelected = {
+            (vehicle: NSManagedObject) -> Void in
+            let secondViewController = self.storyboard.instantiateViewControllerWithIdentifier("CreateVehicleController") as CreateVehicleController
             
+            secondViewController.vehicle = vehicle
+            
+            self.navigationController.pushViewController(secondViewController, animated: true)
+
+        }
+        
         self.vehiclesList.load()
     }
     
