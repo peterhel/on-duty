@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         self.vehiclesList.onVehicleSelected = onVehicleSelected
-        self.vehiclesList.load()
+        //self.vehiclesList.load()
         
     }
 

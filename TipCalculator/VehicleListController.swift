@@ -48,7 +48,7 @@ class VehicleListController: UIViewController
 
         }
         
-        self.vehiclesList.load()
+        //self.vehiclesList.load()
     }
     
     override func didReceiveMemoryWarning() {

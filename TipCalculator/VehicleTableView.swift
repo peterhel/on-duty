@@ -13,7 +13,12 @@ import CoreData
 class VehicleTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     var selectedVehicle : Vehicle!
     
-    func load(){
+    
+    override func awakeFromNib() {
+        self._load()
+    }
+    
+    func _load(){
         self.registerClass(UMTableViewCell.self, forCellReuseIdentifier: "cell")
         self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.delegate=self;

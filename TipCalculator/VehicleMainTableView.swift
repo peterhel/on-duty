@@ -12,14 +12,12 @@ import CoreData
 
 class VehicleMainTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     var onVehicleSelected: ((vehicle:Vehicle)->())?
+
+    override func awakeFromNib() {
+        self._load()
+    }
     
-    func load(){
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        var context:NSManagedObjectContext = appDel.managedObjectContext
-        
-        var request = NSFetchRequest(entityName: "Vehicle")
-        request.returnsObjectsAsFaults = false
-        
+    func _load(){
         self.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.allowsSelection = true;
