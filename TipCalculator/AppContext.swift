@@ -45,9 +45,9 @@ class EventListener {
         println("Listener added for Deleted '\(event)'. Total \(listeners.count) listeners")
     }
     
-    func fireEntityCreated(entity: NSManagedObject) -> Void {
-        var listeners = getCreatedListenersFor(entity.entity.name)
-        println("Incoming created event for '\(entity.entity.name)' going out to \(listeners.count) listeners")
+    func fireEntityCreated(type: String, entity: AnyObject) -> Void {
+        var listeners = getCreatedListenersFor(type)
+        println("Incoming created event for '\(type)' going out to \(listeners.count) listeners")
         for l in listeners
         {
             println("Executing listener callback")

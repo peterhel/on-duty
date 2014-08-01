@@ -24,15 +24,17 @@ class VehicleListController: UIViewController
         
         AppContext.eventListener.addEntityCreatedListener("Vehicle", listener: Listener (
             {
-                (entity: AnyObject) -> Void in
+                (entity: AnyObject!) -> Void in
                     self.navigationController.popViewControllerAnimated(true)
+                    println()
             }
         ))
         
         AppContext.eventListener.addEntityUpdatedListener("Vehicle", listener: Listener (
             {
-                (vehicle: AnyObject) -> Void in
+                (vehicle: AnyObject!) -> Void in
                 self.navigationController.popViewControllerAnimated(true)
+                println()
             }
         ))
         

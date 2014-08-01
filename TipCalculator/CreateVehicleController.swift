@@ -64,9 +64,11 @@ class CreateVehicleController : UIViewController{
         vehicle.setValue(drivm, forKey: "fuel")
         vehicle.setValue(own, forKey: "owner")
         
+        var v = Vehicle(regno: regNo, fuel: drivm, owner: own)
+        Vehicles.all.append(v)
         context.save(nil)
         
-        AppContext.eventListener.fireEntityCreated(vehicle)
+        AppContext.eventListener.fireEntityCreated("Vehicle", entity: v)
     }
     
     override func viewDidLoad() {
